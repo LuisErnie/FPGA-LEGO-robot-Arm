@@ -1,0 +1,61 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "EOT",
+					"strict" : false
+				},
+				{
+					"name" : "TxD",
+					"strict" : false
+				},
+				{
+					"name" : "START",
+					"strict" : false
+				},
+				{
+					"name" : "CLK",
+					"strict" : false
+				},
+				{
+					"name" : "RST",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "DIN[1]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

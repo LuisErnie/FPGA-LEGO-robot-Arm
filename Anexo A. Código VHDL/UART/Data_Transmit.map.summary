@@ -1,0 +1,12 @@
+Analysis & Synthesis Status : Failed - Thu Aug 02 16:05:29 2018
+Quartus Prime Version : 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+Revision Name : Data_Transmit
+Top-level Entity Name : Data_Transmit
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A until Partition Merge
+Total registers : N/A until Partition Merge
+Total pins : N/A until Partition Merge
+Total virtual pins : N/A until Partition Merge
+Total block memory bits : N/A until Partition Merge
+Total PLLs : N/A until Partition Merge
+Total DLLs : N/A until Partition Merge

@@ -1,0 +1,20 @@
+Fitter Status : Failed - Thu Aug 02 16:03:56 2018
+Quartus Prime Version : 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+Revision Name : Data_Transmit
+Top-level Entity Name : Data_Transmit
+Family : Cyclone V
+Device : 5CGXFC7C7F23C8
+Timing Models : Final
+Logic utilization (in ALMs) : 38 / 56,480 ( < 1 % )
+Total registers : 52
+Total pins : 13 / 268 ( 5 % )
+Total virtual pins : 0
+Total block memory bits : 0 / 7,024,640 ( 0 % )
+Total RAM Blocks : 0 / 686 ( 0 % )
+Total DSP Blocks : 0 / 156 ( 0 % )
+Total HSSI RX PCSs : 0 / 6 ( 0 % )
+Total HSSI PMA RX Deserializers : 0 / 6 ( 0 % )
+Total HSSI TX PCSs : 0 / 6 ( 0 % )
+Total HSSI PMA TX Serializers : 0 / 6 ( 0 % )
+Total PLLs : 0 / 13 ( 0 % )
+Total DLLs : 0 / 4 ( 0 % )
