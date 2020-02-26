@@ -1,0 +1,107 @@
+----------------------------------------------------------------------
+-- Motor Controller Top module
+----------------------------------------------------------------------
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity Motor_Control is
+	port(
+		i_Clk          : in std_logic;
+		
+		i_MUX_Limit_0	: in std_logic_vector(1 downto 0);	--Mux 0 to 1
+		i_MUX_Limit_1	: in std_logic_vector(1 downto 0);	--Mux 2 to 3
+		i_MUX_EN_0  	: in std_logic;				--Mux 4
+		i_MUX_EN_1   	: in std_logic;				--Mux 5
+		--i_MUX_EN_2   	: in std_logic;				--Mux 6
+		i_MUX_Stick_0	: in std_logic_vector(1 downto 0);	--Mux 7 to 8
+		i_MUX_Stick_1	: in std_logic_vector(1 downto 0);	--Mux 9 to 10
+		i_MUX_Stick_2	: in std_logic_vector(1 downto 0);	--Mux 11 to 12
+		i_MUX_Stick_3	: in std_logic_vector(1 downto 0);	--Mux 13 to 14
+		--i_MUX_Button	: in std_logic;				--Mux 15
+
+		
+		o_Motor_0_Dir	: out std_logic;
+		o_Motor_0_En	: out std_logic;
+		o_Motor_0_PWM	: out std_logic;
+		o_Motor_1_Dir	: out std_logic;
+		o_Motor_1_En	: out std_logic;
+		o_Motor_1_PWM  : out std_logic;
+		o_Motor_2_Dir	: out std_logic;
+		o_Motor_2_En	: out std_logic;
+		o_Motor_2_PWM  : out std_logic;
+		o_Motor_3_Dir	: out std_logic;
+		o_Motor_3_En	: out std_logic;
+		o_Motor_3_PWM  : out std_logic
+	);
+end Motor_Control;
+
+architecture Behavioral of Motor_Control is
+	signal r_Duty_Cycle : std_logic_vector(9 downto 0):= "1100000000";
+	--DC motor controller
+	component H_Bridge_DC_Motor is
+		generic(
+			g_BITS_RESOLUTION_PWM : integer := 10;
+			g_FORWARD 				 : std_logic_vector := "01";
+			g_REVERSE				 : std_logic_vector := "10";
+			g_HOLD					 : std_logic_vector := "11";
+			g_LIMIT_OFF				 : std_logic_vector := "11"	
+		);
+		port(
+			i_Clk                : in std_logic;
+			i_H_Bridge_Enable    : in std_logic;
+			i_Duty_Cycle         : in std_logic_vector((g_BITS_RESOLUTION_PWM-1) downto 0);
+			i_Control_Stick      : in std_logic_vector(1 downto 0);
+			i_Limit_Switch       : in std_logic_vector(1 downto 0);
+			o_H_Bridge_Direction : out std_logic;
+			o_H_Bridge_Enable    : out std_logic;
+			o_H_Bridge_PWM       : out std_logic
+		);	
+	end component;
+	begin
+		U0 : H_Bridge_DC_Motor generic map (10, "10", "01", "00", "11")
+		port map(
+			i_Clk,
+			i_MUX_EN_0,
+			r_Duty_Cycle,
+			i_MUX_Stick_0,
+			i_MUX_Limit_0,
+			o_Motor_0_Dir,
+			o_Motor_0_En,
+			o_Motor_0_PWM
+		);
+		U1 : H_Bridge_DC_Motor generic map (10, "10", "01", "00", "11")
+		port map(
+			i_Clk,
+			i_MUX_EN_1,
+			r_Duty_Cycle,
+			i_MUX_Stick_1,
+			i_MUX_Limit_1,
+			o_Motor_1_Dir,
+			o_Motor_1_En,
+			o_Motor_1_PWM
+		);
+		U2 : H_Bridge_DC_Motor generic map (10, "10", "01", "00", "11")
+		port map(
+			i_Clk,
+			i_MUX_EN_0,
+			r_Duty_Cycle,
+			i_MUX_Stick_2,
+			"11",
+			o_Motor_2_Dir,
+			o_Motor_2_En,
+			o_Motor_2_PWM
+		);
+		U3 : H_Bridge_DC_Motor generic map (10, "10", "01", "00", "11")
+		port map(
+			i_Clk,
+			i_MUX_EN_1,
+			r_Duty_Cycle,
+			i_MUX_Stick_3,
+			"11",
+			o_Motor_3_Dir,
+			o_Motor_3_En,
+			o_Motor_3_PWM
+		);
+end Behavioral;

@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Fri Aug 10 14:10:05 2018
+Quartus Prime Version : 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+Revision Name : Motor_Control
+Top-level Entity Name : Motor_Control
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 215
+Total pins : 35
+Total virtual pins : 0
+Total block memory bits : 0
+Total DSP Blocks : 4
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0

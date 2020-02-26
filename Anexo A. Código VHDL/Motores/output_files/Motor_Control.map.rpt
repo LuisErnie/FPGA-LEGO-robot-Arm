@@ -1,0 +1,819 @@
+Analysis & Synthesis report for Motor_Control
+Fri Aug 10 14:10:05 2018
+Quartus Prime Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Analysis & Synthesis DSP Block Usage Summary
+  9. State Machine - |Motor_Control|Mux_Control:U4|r_SM_Main
+ 10. State Machine - |Motor_Control|H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0|r_SM_Main
+ 11. State Machine - |Motor_Control|H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0|r_SM_Main
+ 12. State Machine - |Motor_Control|H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0|r_SM_Main
+ 13. State Machine - |Motor_Control|H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0|r_SM_Main
+ 14. Registers Removed During Synthesis
+ 15. General Register Statistics
+ 16. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0
+ 17. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0
+ 18. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1
+ 19. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1
+ 20. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0
+ 21. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1
+ 22. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2
+ 23. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0
+ 24. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1
+ 25. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3
+ 26. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0
+ 27. Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1
+ 28. Parameter Settings for User Entity Instance: Mux_Control:U4
+ 29. Parameter Settings for User Entity Instance: Data_Transmit:U5|Time_Base_Generic:U1
+ 30. Parameter Settings for User Entity Instance: Data_Transmit:U5|Time_Base_Generic:U2
+ 31. Port Connectivity Checks: "Data_Transmit:U5|Time_Base_Generic:U2"
+ 32. Port Connectivity Checks: "Data_Transmit:U5|Time_Base_Generic:U1"
+ 33. Port Connectivity Checks: "Mux_Control:U4"
+ 34. Port Connectivity Checks: "H_Bridge_DC_Motor:U3"
+ 35. Port Connectivity Checks: "H_Bridge_DC_Motor:U2"
+ 36. Post-Synthesis Netlist Statistics for Top Partition
+ 37. Elapsed Time Per Partition
+ 38. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2017  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                           ;
++---------------------------------+------------------------------------------------------+
+; Analysis & Synthesis Status     ; Successful - Fri Aug 10 14:10:05 2018                ;
+; Quartus Prime Version           ; 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition ;
+; Revision Name                   ; Motor_Control                                        ;
+; Top-level Entity Name           ; Motor_Control                                        ;
+; Family                          ; Cyclone V                                            ;
+; Logic utilization (in ALMs)     ; N/A                                                  ;
+; Total registers                 ; 215                                                  ;
+; Total pins                      ; 35                                                   ;
+; Total virtual pins              ; 0                                                    ;
+; Total block memory bits         ; 0                                                    ;
+; Total DSP Blocks                ; 4                                                    ;
+; Total HSSI RX PCSs              ; 0                                                    ;
+; Total HSSI PMA RX Deserializers ; 0                                                    ;
+; Total HSSI TX PCSs              ; 0                                                    ;
+; Total HSSI PMA TX Serializers   ; 0                                                    ;
+; Total PLLs                      ; 0                                                    ;
+; Total DLLs                      ; 0                                                    ;
++---------------------------------+------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                             ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                          ; Setting            ; Default Value      ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                          ; 5CSEMA5F31C6       ;                    ;
+; Top-level entity name                                                           ; Motor_Control      ; Motor_Control      ;
+; Family name                                                                     ; Cyclone V          ; Cyclone V          ;
+; Use smart compilation                                                           ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation      ; On                 ; On                 ;
+; Enable compact report table                                                     ; Off                ; Off                ;
+; Restructure Multiplexers                                                        ; Auto               ; Auto               ;
+; MLAB Add Timing Constraints For Mixed-Port Feed-Through Mode Setting Don't Care ; Off                ; Off                ;
+; Create Debugging Nodes for IP Cores                                             ; Off                ; Off                ;
+; Preserve fewer node names                                                       ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                                   ; Enable             ; Enable             ;
+; Verilog Version                                                                 ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                                    ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                        ; Auto               ; Auto               ;
+; Safe State Machine                                                              ; Off                ; Off                ;
+; Extract Verilog State Machines                                                  ; On                 ; On                 ;
+; Extract VHDL State Machines                                                     ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                               ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                      ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                                  ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                         ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                                       ; On                 ; On                 ;
+; Parallel Synthesis                                                              ; On                 ; On                 ;
+; DSP Block Balancing                                                             ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                              ; On                 ; On                 ;
+; Power-Up Don't Care                                                             ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                                    ; Off                ; Off                ;
+; Remove Duplicate Registers                                                      ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                            ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                          ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                           ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                       ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                            ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                             ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                                  ; Off                ; Off                ;
+; Optimization Technique                                                          ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                              ; 70                 ; 70                 ;
+; Auto Carry Chains                                                               ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                            ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                           ; Off                ; Off                ;
+; Auto ROM Replacement                                                            ; On                 ; On                 ;
+; Auto RAM Replacement                                                            ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                      ; On                 ; On                 ;
+; Auto Shift Register Replacement                                                 ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                                 ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                                   ; On                 ; On                 ;
+; Strict RAM Replacement                                                          ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                               ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                           ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                              ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                                   ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                             ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                               ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                         ; On                 ; On                 ;
+; Report Parameter Settings                                                       ; On                 ; On                 ;
+; Report Source Assignments                                                       ; On                 ; On                 ;
+; Report Connectivity Checks                                                      ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                              ; Off                ; Off                ;
+; Synchronization Register Chain Length                                           ; 3                  ; 3                  ;
+; Power Optimization During Synthesis                                             ; Normal compilation ; Normal compilation ;
+; HDL message level                                                               ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                                 ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                        ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report                              ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                       ; 100                ; 100                ;
+; Clock MUX Protection                                                            ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                     ; Off                ; Off                ;
+; Block Design Naming                                                             ; Auto               ; Auto               ;
+; SDC constraint protection                                                       ; Off                ; Off                ;
+; Synthesis Effort                                                                ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal                    ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                                            ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                                              ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                     ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                          ; On                 ; On                 ;
+; Automatic Parallel Synthesis                                                    ; On                 ; On                 ;
+; Partial Reconfiguration Bitstream ID                                            ; Off                ; Off                ;
++---------------------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 4           ;
+; Maximum allowed            ; 2           ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 2           ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
++----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                  ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                           ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
+; H_Bridge_PWM.vhd                 ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/H_Bridge_PWM.vhd       ;         ;
+; H_Bridge_Direction.vhd           ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/H_Bridge_Direction.vhd ;         ;
+; H_Bridge_DC_Motor.vhd            ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/H_Bridge_DC_Motor.vhd  ;         ;
+; Motor_Control.vhd                ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Motor_Control.vhd      ;         ;
+; Mux_Control.vhd                  ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Mux_Control.vhd        ;         ;
+; Data_Demultiplexer.vhd           ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd ;         ;
+; Data_Latch.vhd                   ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Data_Latch.vhd         ;         ;
+; Data_Transmit.vhd                ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd      ;         ;
+; Parity_Check.vhd                 ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Parity_Check.vhd       ;         ;
+; Time_Base_Generic.vhd            ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Time_Base_Generic.vhd  ;         ;
+; Transmition_FSM.vhd              ; yes             ; User VHDL File  ; C:/Users/lefr/Downloads/Motores/Transmition_FSM.vhd    ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimate of Logic utilization (ALMs needed) ; 168         ;
+;                                             ;             ;
+; Combinational ALUT usage for logic          ; 272         ;
+;     -- 7 input functions                    ; 1           ;
+;     -- 6 input functions                    ; 48          ;
+;     -- 5 input functions                    ; 40          ;
+;     -- 4 input functions                    ; 22          ;
+;     -- <=3 input functions                  ; 161         ;
+;                                             ;             ;
+; Dedicated logic registers                   ; 215         ;
+;                                             ;             ;
+; I/O pins                                    ; 35          ;
+;                                             ;             ;
+; Total DSP Blocks                            ; 4           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; i_Clk~input ;
+; Maximum fan-out                             ; 215         ;
+; Total fan-out                               ; 1677        ;
+; Average fan-out                             ; 2.99        ;
++---------------------------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                    ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
+; Compilation Hierarchy Node    ; Combinational ALUTs ; Dedicated Logic Registers ; Block Memory Bits ; DSP Blocks ; Pins ; Virtual Pins ; Full Hierarchy Name                                       ; Entity Name        ; Library Name ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
+; |Motor_Control                ; 272 (0)             ; 215 (0)                   ; 0                 ; 4          ; 35   ; 0            ; |Motor_Control                                            ; Motor_Control      ; work         ;
+;    |Data_Transmit:U5|         ; 62 (0)              ; 52 (0)                    ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5                           ; Data_Transmit      ; work         ;
+;       |Data_Demultiplexer:U4| ; 4 (4)               ; 0 (0)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5|Data_Demultiplexer:U4     ; Data_Demultiplexer ; work         ;
+;       |Data_Latch:U5|         ; 0 (0)               ; 8 (8)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5|Data_Latch:U5             ; Data_Latch         ; work         ;
+;       |Time_Base_Generic:U1|  ; 16 (16)             ; 13 (13)                   ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5|Time_Base_Generic:U1      ; Time_Base_Generic  ; work         ;
+;       |Time_Base_Generic:U2|  ; 33 (33)             ; 27 (27)                   ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5|Time_Base_Generic:U2      ; Time_Base_Generic  ; work         ;
+;       |Transmition_FSM:U0|    ; 9 (9)               ; 4 (4)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Data_Transmit:U5|Transmition_FSM:U0        ; Transmition_FSM    ; work         ;
+;    |H_Bridge_DC_Motor:U0|     ; 58 (0)              ; 40 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U0                       ; H_Bridge_DC_Motor  ; work         ;
+;       |H_Bridge_Direction:U0| ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0 ; H_Bridge_Direction ; work         ;
+;       |H_Bridge_PWM:U1|       ; 50 (50)             ; 33 (33)                   ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1       ; H_Bridge_PWM       ; work         ;
+;    |H_Bridge_DC_Motor:U1|     ; 38 (0)              ; 24 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U1                       ; H_Bridge_DC_Motor  ; work         ;
+;       |H_Bridge_Direction:U0| ; 8 (8)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0 ; H_Bridge_Direction ; work         ;
+;       |H_Bridge_PWM:U1|       ; 30 (30)             ; 17 (17)                   ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1       ; H_Bridge_PWM       ; work         ;
+;    |H_Bridge_DC_Motor:U2|     ; 35 (0)              ; 24 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U2                       ; H_Bridge_DC_Motor  ; work         ;
+;       |H_Bridge_Direction:U0| ; 5 (5)               ; 7 (7)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0 ; H_Bridge_Direction ; work         ;
+;       |H_Bridge_PWM:U1|       ; 30 (30)             ; 17 (17)                   ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1       ; H_Bridge_PWM       ; work         ;
+;    |H_Bridge_DC_Motor:U3|     ; 35 (0)              ; 23 (0)                    ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U3                       ; H_Bridge_DC_Motor  ; work         ;
+;       |H_Bridge_Direction:U0| ; 5 (5)               ; 6 (6)                     ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0 ; H_Bridge_Direction ; work         ;
+;       |H_Bridge_PWM:U1|       ; 30 (30)             ; 17 (17)                   ; 0                 ; 1          ; 0    ; 0            ; |Motor_Control|H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1       ; H_Bridge_PWM       ; work         ;
+;    |Mux_Control:U4|           ; 44 (44)             ; 52 (52)                   ; 0                 ; 0          ; 0    ; 0            ; |Motor_Control|Mux_Control:U4                             ; Mux_Control        ; work         ;
++-------------------------------+---------------------+---------------------------+-------------------+------------+------+--------------+-----------------------------------------------------------+--------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------+
+; Analysis & Synthesis DSP Block Usage Summary  ;
++---------------------------------+-------------+
+; Statistic                       ; Number Used ;
++---------------------------------+-------------+
+; Two Independent 18x18           ; 4           ;
+; Total number of DSP blocks      ; 4           ;
+;                                 ;             ;
+; Fixed Point Unsigned Multiplier ; 4           ;
++---------------------------------+-------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Motor_Control|Mux_Control:U4|r_SM_Main                                                                                                                                                                                                                                                                                                  ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+; Name               ; r_SM_Main.s_Mux_15 ; r_SM_Main.s_Mux_14 ; r_SM_Main.s_Mux_13 ; r_SM_Main.s_Mux_12 ; r_SM_Main.s_Mux_11 ; r_SM_Main.s_Mux_10 ; r_SM_Main.s_Mux_9 ; r_SM_Main.s_Mux_8 ; r_SM_Main.s_Mux_7 ; r_SM_Main.s_Mux_6 ; r_SM_Main.s_Mux_5 ; r_SM_Main.s_Mux_4 ; r_SM_Main.s_Mux_3 ; r_SM_Main.s_Mux_2 ; r_SM_Main.s_Mux_1 ; r_SM_Main.s_Mux_0 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+; r_SM_Main.s_Mux_0  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ;
+; r_SM_Main.s_Mux_1  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 1                 ;
+; r_SM_Main.s_Mux_2  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_3  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_4  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_5  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_6  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_7  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_8  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_9  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_10 ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_11 ; 0                  ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_12 ; 0                  ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_13 ; 0                  ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_14 ; 0                  ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
+; r_SM_Main.s_Mux_15 ; 1                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                  ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 0                 ; 1                 ;
++--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+--------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+-------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Motor_Control|H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0|r_SM_Main                                           ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; Name                      ; r_SM_Main.s_Motor_Hold ; r_SM_Main.s_Motor_Reverse ; r_SM_Main.s_Motor_Forward ; r_SM_Main.s_Idle ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; r_SM_Main.s_Idle          ; 0                      ; 0                         ; 0                         ; 0                ;
+; r_SM_Main.s_Motor_Forward ; 0                      ; 0                         ; 1                         ; 1                ;
+; r_SM_Main.s_Motor_Reverse ; 0                      ; 1                         ; 0                         ; 1                ;
+; r_SM_Main.s_Motor_Hold    ; 1                      ; 0                         ; 0                         ; 1                ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Motor_Control|H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0|r_SM_Main                                           ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; Name                      ; r_SM_Main.s_Motor_Hold ; r_SM_Main.s_Motor_Reverse ; r_SM_Main.s_Motor_Forward ; r_SM_Main.s_Idle ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; r_SM_Main.s_Idle          ; 0                      ; 0                         ; 0                         ; 0                ;
+; r_SM_Main.s_Motor_Forward ; 0                      ; 0                         ; 1                         ; 1                ;
+; r_SM_Main.s_Motor_Reverse ; 0                      ; 1                         ; 0                         ; 1                ;
+; r_SM_Main.s_Motor_Hold    ; 1                      ; 0                         ; 0                         ; 1                ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Motor_Control|H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0|r_SM_Main                                           ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; Name                      ; r_SM_Main.s_Motor_Hold ; r_SM_Main.s_Motor_Reverse ; r_SM_Main.s_Motor_Forward ; r_SM_Main.s_Idle ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; r_SM_Main.s_Idle          ; 0                      ; 0                         ; 0                         ; 0                ;
+; r_SM_Main.s_Motor_Forward ; 0                      ; 0                         ; 1                         ; 1                ;
+; r_SM_Main.s_Motor_Reverse ; 0                      ; 1                         ; 0                         ; 1                ;
+; r_SM_Main.s_Motor_Hold    ; 1                      ; 0                         ; 0                         ; 1                ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |Motor_Control|H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0|r_SM_Main                                           ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; Name                      ; r_SM_Main.s_Motor_Hold ; r_SM_Main.s_Motor_Reverse ; r_SM_Main.s_Motor_Forward ; r_SM_Main.s_Idle ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+; r_SM_Main.s_Idle          ; 0                      ; 0                         ; 0                         ; 0                ;
+; r_SM_Main.s_Motor_Forward ; 0                      ; 0                         ; 1                         ; 1                ;
+; r_SM_Main.s_Motor_Reverse ; 0                      ; 1                         ; 0                         ; 1                ;
+; r_SM_Main.s_Motor_Hold    ; 1                      ; 0                         ; 0                         ; 1                ;
++---------------------------+------------------------+---------------------------+---------------------------+------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                    ;
++-------------------------------------------------------------+-------------------------------------------------------------------------+
+; Register name                                               ; Reason for Removal                                                      ;
++-------------------------------------------------------------+-------------------------------------------------------------------------+
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[15]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[15]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[15]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[15]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[15]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[15]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[14]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[14]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[14]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[14]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[14]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[14]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[13]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[13]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[13]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[13]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[13]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[13]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[12]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[12]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[12]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[12]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[12]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[12]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[11]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[11]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[11]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[11]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[11]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[11]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[10]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[10]            ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[10]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[10]            ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[10]            ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[10]            ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[9]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[9]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[9]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[9]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[9]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[9]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[8]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[8]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[8]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[8]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[8]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[8]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[7]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[7]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[7]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[7]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[7]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[7]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[6]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[6]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[6]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[6]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[6]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[6]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[5]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[5]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[5]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[5]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[5]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[5]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[4]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[4]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[4]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[4]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[4]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[4]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[3]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[3]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[3]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[3]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[3]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[3]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[2]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[2]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[2]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[2]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[2]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[2]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[1]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[1]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[1]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[1]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[1]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[1]             ;
+; H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1|r_count[0]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[0]             ;
+; H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1|r_count[0]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[0]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1|r_count[0]             ; Merged with H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1|r_count[0]             ;
+; H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0|r_SM_Main.s_Idle ; Merged with H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0|r_SM_Main.s_Idle ;
+; Total Number of Removed Registers = 49                      ;                                                                         ;
++-------------------------------------------------------------+-------------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 215   ;
+; Number of registers using Synchronous Clear  ; 73    ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 52    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 124   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0 ;
++-----------------------+-------+-----------------------------------+
+; Parameter Name        ; Value ; Type                              ;
++-----------------------+-------+-----------------------------------+
+; g_bits_resolution_pwm ; 8     ; Signed Integer                    ;
+; g_forward             ; 10    ; Unsigned Binary                   ;
+; g_reverse             ; 01    ; Unsigned Binary                   ;
+; g_hold                ; 00    ; Unsigned Binary                   ;
+; g_limit_off           ; 11    ; Unsigned Binary                   ;
++-----------------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; g_forward      ; 10    ; Unsigned Binary                                                ;
+; g_reverse      ; 01    ; Unsigned Binary                                                ;
+; g_hold         ; 00    ; Unsigned Binary                                                ;
+; g_limit_off    ; 11    ; Unsigned Binary                                                ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1 ;
++-------------------+-----------+---------------------------------------------------+
+; Parameter Name    ; Value     ; Type                                              ;
++-------------------+-----------+---------------------------------------------------+
+; g_sys_clk         ; 100000000 ; Signed Integer                                    ;
+; g_pwm_frequency   ; 2000      ; Signed Integer                                    ;
+; g_bits_resolution ; 8         ; Signed Integer                                    ;
++-------------------+-----------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1 ;
++-----------------------+-------+-----------------------------------+
+; Parameter Name        ; Value ; Type                              ;
++-----------------------+-------+-----------------------------------+
+; g_bits_resolution_pwm ; 8     ; Signed Integer                    ;
+; g_forward             ; 10    ; Unsigned Binary                   ;
+; g_reverse             ; 01    ; Unsigned Binary                   ;
+; g_hold                ; 00    ; Unsigned Binary                   ;
+; g_limit_off           ; 11    ; Unsigned Binary                   ;
++-----------------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; g_forward      ; 10    ; Unsigned Binary                                                ;
+; g_reverse      ; 01    ; Unsigned Binary                                                ;
+; g_hold         ; 00    ; Unsigned Binary                                                ;
+; g_limit_off    ; 11    ; Unsigned Binary                                                ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U1|H_Bridge_PWM:U1 ;
++-------------------+-----------+---------------------------------------------------+
+; Parameter Name    ; Value     ; Type                                              ;
++-------------------+-----------+---------------------------------------------------+
+; g_sys_clk         ; 100000000 ; Signed Integer                                    ;
+; g_pwm_frequency   ; 2000      ; Signed Integer                                    ;
+; g_bits_resolution ; 8         ; Signed Integer                                    ;
++-------------------+-----------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2 ;
++-----------------------+-------+-----------------------------------+
+; Parameter Name        ; Value ; Type                              ;
++-----------------------+-------+-----------------------------------+
+; g_bits_resolution_pwm ; 8     ; Signed Integer                    ;
+; g_forward             ; 10    ; Unsigned Binary                   ;
+; g_reverse             ; 01    ; Unsigned Binary                   ;
+; g_hold                ; 00    ; Unsigned Binary                   ;
+; g_limit_off           ; 11    ; Unsigned Binary                   ;
++-----------------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; g_forward      ; 10    ; Unsigned Binary                                                ;
+; g_reverse      ; 01    ; Unsigned Binary                                                ;
+; g_hold         ; 00    ; Unsigned Binary                                                ;
+; g_limit_off    ; 11    ; Unsigned Binary                                                ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U2|H_Bridge_PWM:U1 ;
++-------------------+-----------+---------------------------------------------------+
+; Parameter Name    ; Value     ; Type                                              ;
++-------------------+-----------+---------------------------------------------------+
+; g_sys_clk         ; 100000000 ; Signed Integer                                    ;
+; g_pwm_frequency   ; 2000      ; Signed Integer                                    ;
+; g_bits_resolution ; 8         ; Signed Integer                                    ;
++-------------------+-----------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3 ;
++-----------------------+-------+-----------------------------------+
+; Parameter Name        ; Value ; Type                              ;
++-----------------------+-------+-----------------------------------+
+; g_bits_resolution_pwm ; 8     ; Signed Integer                    ;
+; g_forward             ; 10    ; Unsigned Binary                   ;
+; g_reverse             ; 01    ; Unsigned Binary                   ;
+; g_hold                ; 00    ; Unsigned Binary                   ;
+; g_limit_off           ; 11    ; Unsigned Binary                   ;
++-----------------------+-------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0 ;
++----------------+-------+----------------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                           ;
++----------------+-------+----------------------------------------------------------------+
+; g_forward      ; 10    ; Unsigned Binary                                                ;
+; g_reverse      ; 01    ; Unsigned Binary                                                ;
+; g_hold         ; 00    ; Unsigned Binary                                                ;
+; g_limit_off    ; 11    ; Unsigned Binary                                                ;
++----------------+-------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: H_Bridge_DC_Motor:U3|H_Bridge_PWM:U1 ;
++-------------------+-----------+---------------------------------------------------+
+; Parameter Name    ; Value     ; Type                                              ;
++-------------------+-----------+---------------------------------------------------+
+; g_sys_clk         ; 100000000 ; Signed Integer                                    ;
+; g_pwm_frequency   ; 2000      ; Signed Integer                                    ;
+; g_bits_resolution ; 8         ; Signed Integer                                    ;
++-------------------+-----------+---------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Mux_Control:U4 ;
++----------------+--------+-----------------------------------+
+; Parameter Name ; Value  ; Type                              ;
++----------------+--------+-----------------------------------+
+; g_bits         ; 16     ; Signed Integer                    ;
+; g_bits_control ; 4      ; Signed Integer                    ;
+; g_clks_per_bit ; 100000 ; Signed Integer                    ;
++----------------+--------+-----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Data_Transmit:U5|Time_Base_Generic:U1 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 13    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: Data_Transmit:U5|Time_Base_Generic:U2 ;
++----------------+-------+-----------------------------------------------------------+
+; Parameter Name ; Value ; Type                                                      ;
++----------------+-------+-----------------------------------------------------------+
+; n              ; 27    ; Signed Integer                                            ;
++----------------+-------+-----------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "Data_Transmit:U5|Time_Base_Generic:U2" ;
++--------------+-------+----------+---------------------------------+
+; Port         ; Type  ; Severity ; Details                         ;
++--------------+-------+----------+---------------------------------+
+; cont[19..18] ; Input ; Info     ; Stuck at VCC                    ;
+; cont[9..8]   ; Input ; Info     ; Stuck at VCC                    ;
+; cont[26..23] ; Input ; Info     ; Stuck at GND                    ;
+; cont[21..20] ; Input ; Info     ; Stuck at GND                    ;
+; cont[17..15] ; Input ; Info     ; Stuck at GND                    ;
+; cont[13..12] ; Input ; Info     ; Stuck at GND                    ;
+; cont[5..0]   ; Input ; Info     ; Stuck at GND                    ;
+; cont[22]     ; Input ; Info     ; Stuck at VCC                    ;
+; cont[14]     ; Input ; Info     ; Stuck at VCC                    ;
+; cont[11]     ; Input ; Info     ; Stuck at VCC                    ;
+; cont[10]     ; Input ; Info     ; Stuck at GND                    ;
+; cont[7]      ; Input ; Info     ; Stuck at GND                    ;
+; cont[6]      ; Input ; Info     ; Stuck at VCC                    ;
++--------------+-------+----------+---------------------------------+
+
+
++-------------------------------------------------------------------+
+; Port Connectivity Checks: "Data_Transmit:U5|Time_Base_Generic:U1" ;
++------------+-------+----------+-----------------------------------+
+; Port       ; Type  ; Severity ; Details                           ;
++------------+-------+----------+-----------------------------------+
+; cont[4..3] ; Input ; Info     ; Stuck at VCC                      ;
+; cont[9..7] ; Input ; Info     ; Stuck at GND                      ;
+; cont[2..0] ; Input ; Info     ; Stuck at GND                      ;
+; cont[12]   ; Input ; Info     ; Stuck at VCC                      ;
+; cont[11]   ; Input ; Info     ; Stuck at GND                      ;
+; cont[10]   ; Input ; Info     ; Stuck at VCC                      ;
+; cont[6]    ; Input ; Info     ; Stuck at VCC                      ;
+; cont[5]    ; Input ; Info     ; Stuck at GND                      ;
++------------+-------+----------+-----------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "Mux_Control:U4"                                                                          ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; o_mux[15] ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "H_Bridge_DC_Motor:U3" ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; i_limit_switch ; Input ; Info     ; Stuck at VCC ;
++----------------+-------+----------+--------------+
+
+
++--------------------------------------------------+
+; Port Connectivity Checks: "H_Bridge_DC_Motor:U2" ;
++----------------+-------+----------+--------------+
+; Port           ; Type  ; Severity ; Details      ;
++----------------+-------+----------+--------------+
+; i_limit_switch ; Input ; Info     ; Stuck at VCC ;
++----------------+-------+----------+--------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; arriav_ff             ; 215                         ;
+;     CLR               ; 4                           ;
+;     ENA               ; 76                          ;
+;     ENA CLR           ; 8                           ;
+;     ENA CLR SCLR      ; 40                          ;
+;     SCLR              ; 33                          ;
+;     plain             ; 54                          ;
+; arriav_lcell_comb     ; 274                         ;
+;     arith             ; 133                         ;
+;         0 data inputs ; 4                           ;
+;         1 data inputs ; 125                         ;
+;         2 data inputs ; 4                           ;
+;     extend            ; 1                           ;
+;         7 data inputs ; 1                           ;
+;     normal            ; 140                         ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 8                           ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 22                          ;
+;         5 data inputs ; 40                          ;
+;         6 data inputs ; 48                          ;
+; arriav_mac            ; 4                           ;
+; boundary_port         ; 35                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.40                        ;
+; Average LUT depth     ; 2.57                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 17.1.1 Internal Build 593 12/11/2017 SJ Lite Edition
+    Info: Processing started: Fri Aug 10 14:09:45 2018
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Motor_Control -c Motor_Control
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 2 of the 2 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file h_bridge_pwm.vhd
+    Info (12022): Found design unit 1: H_Bridge_PWM-Behavioral File: C:/Users/lefr/Downloads/Motores/H_Bridge_PWM.vhd Line: 27
+    Info (12023): Found entity 1: H_Bridge_PWM File: C:/Users/lefr/Downloads/Motores/H_Bridge_PWM.vhd Line: 13
+Info (12021): Found 2 design units, including 1 entities, in source file h_bridge_direction.vhd
+    Info (12022): Found design unit 1: H_Bridge_Direction-Behavioral File: C:/Users/lefr/Downloads/Motores/H_Bridge_Direction.vhd Line: 33
+    Info (12023): Found entity 1: H_Bridge_Direction File: C:/Users/lefr/Downloads/Motores/H_Bridge_Direction.vhd Line: 12
+Info (12021): Found 2 design units, including 1 entities, in source file h_bridge_dc_motor.vhd
+    Info (12022): Found design unit 1: H_Bridge_DC_Motor-Behavioral File: C:/Users/lefr/Downloads/Motores/H_Bridge_DC_Motor.vhd Line: 29
+    Info (12023): Found entity 1: H_Bridge_DC_Motor File: C:/Users/lefr/Downloads/Motores/H_Bridge_DC_Motor.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file motor_control.vhd
+    Info (12022): Found design unit 1: Motor_Control-Behavioral File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 38
+    Info (12023): Found entity 1: Motor_Control File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file mux_control.vhd
+    Info (12022): Found design unit 1: Mux_Control-Behavioral File: C:/Users/lefr/Downloads/Motores/Mux_Control.vhd Line: 28
+    Info (12023): Found entity 1: Mux_Control File: C:/Users/lefr/Downloads/Motores/Mux_Control.vhd Line: 14
+Info (12021): Found 2 design units, including 1 entities, in source file data_demultiplexer.vhd
+    Info (12022): Found design unit 1: Data_Demultiplexer-Behavioral File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 15
+    Info (12023): Found entity 1: Data_Demultiplexer File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file data_latch.vhd
+    Info (12022): Found design unit 1: Data_Latch-Behavioral File: C:/Users/lefr/Downloads/Motores/Data_Latch.vhd Line: 16
+    Info (12023): Found entity 1: Data_Latch File: C:/Users/lefr/Downloads/Motores/Data_Latch.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file data_transmit.vhd
+    Info (12022): Found design unit 1: Data_Transmit-Behavioral File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 17
+    Info (12023): Found entity 1: Data_Transmit File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file parity_check.vhd
+    Info (12022): Found design unit 1: Parity_Check-Behavioral File: C:/Users/lefr/Downloads/Motores/Parity_Check.vhd Line: 13
+    Info (12023): Found entity 1: Parity_Check File: C:/Users/lefr/Downloads/Motores/Parity_Check.vhd Line: 8
+Info (12021): Found 2 design units, including 1 entities, in source file time_base_generic.vhd
+    Info (12022): Found design unit 1: Time_Base_Generic-Behavioral File: C:/Users/lefr/Downloads/Motores/Time_Base_Generic.vhd Line: 18
+    Info (12023): Found entity 1: Time_Base_Generic File: C:/Users/lefr/Downloads/Motores/Time_Base_Generic.vhd Line: 9
+Info (12021): Found 2 design units, including 1 entities, in source file transmition_fsm.vhd
+    Info (12022): Found design unit 1: Transmition_FSM-Behavioral File: C:/Users/lefr/Downloads/Motores/Transmition_FSM.vhd Line: 19
+    Info (12023): Found entity 1: Transmition_FSM File: C:/Users/lefr/Downloads/Motores/Transmition_FSM.vhd Line: 8
+Info (12127): Elaborating entity "Motor_Control" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at Motor_Control.vhd(21): used implicit default value for signal "o_Mux_Check" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations. File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+Info (12128): Elaborating entity "H_Bridge_DC_Motor" for hierarchy "H_Bridge_DC_Motor:U0" File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 87
+Info (12128): Elaborating entity "H_Bridge_Direction" for hierarchy "H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0" File: C:/Users/lefr/Downloads/Motores/H_Bridge_DC_Motor.vhd Line: 67
+Info (12128): Elaborating entity "H_Bridge_PWM" for hierarchy "H_Bridge_DC_Motor:U0|H_Bridge_PWM:U1" File: C:/Users/lefr/Downloads/Motores/H_Bridge_DC_Motor.vhd Line: 79
+Info (12128): Elaborating entity "Mux_Control" for hierarchy "Mux_Control:U4" File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 131
+Info (12128): Elaborating entity "Data_Transmit" for hierarchy "Data_Transmit:U5" File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 138
+Info (12128): Elaborating entity "Transmition_FSM" for hierarchy "Data_Transmit:U5|Transmition_FSM:U0" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 64
+Info (12128): Elaborating entity "Time_Base_Generic" for hierarchy "Data_Transmit:U5|Time_Base_Generic:U1" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 65
+Warning (10492): VHDL Process Statement warning at Time_Base_Generic.vhd(25): signal "CONT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Time_Base_Generic.vhd Line: 25
+Info (12128): Elaborating entity "Time_Base_Generic" for hierarchy "Data_Transmit:U5|Time_Base_Generic:U2" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 67
+Warning (10492): VHDL Process Statement warning at Time_Base_Generic.vhd(25): signal "CONT" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Time_Base_Generic.vhd Line: 25
+Info (12128): Elaborating entity "Parity_Check" for hierarchy "Data_Transmit:U5|Parity_Check:U3" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 69
+Info (12128): Elaborating entity "Data_Demultiplexer" for hierarchy "Data_Transmit:U5|Data_Demultiplexer:U4" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 70
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(26): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 26
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(28): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 28
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(30): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 30
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(32): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(34): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(36): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 36
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(38): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 38
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(40): signal "DATA" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 40
+Warning (10492): VHDL Process Statement warning at Data_Demultiplexer.vhd(42): signal "PAR" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Demultiplexer.vhd Line: 42
+Info (12128): Elaborating entity "Data_Latch" for hierarchy "Data_Transmit:U5|Data_Latch:U5" File: C:/Users/lefr/Downloads/Motores/Data_Transmit.vhd Line: 71
+Warning (10492): VHDL Process Statement warning at Data_Latch.vhd(23): signal "DIN" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Latch.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at Data_Latch.vhd(25): signal "Qp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Latch.vhd Line: 25
+Warning (10492): VHDL Process Statement warning at Data_Latch.vhd(27): signal "Qp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: C:/Users/lefr/Downloads/Motores/Data_Latch.vhd Line: 27
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "o_Mux_Check[0]" is stuck at GND File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+    Warning (13410): Pin "o_Mux_Check[1]" is stuck at GND File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+    Warning (13410): Pin "o_Mux_Check[2]" is stuck at GND File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+    Warning (13410): Pin "o_Mux_Check[3]" is stuck at GND File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+    Warning (13410): Pin "o_Mux_Check[4]" is stuck at GND File: C:/Users/lefr/Downloads/Motores/Motor_Control.vhd Line: 21
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 400 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 12 input pins
+    Info (21059): Implemented 23 output pins
+    Info (21061): Implemented 361 logic cells
+    Info (21062): Implemented 4 DSP elements
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 4883 megabytes
+    Info: Processing ended: Fri Aug 10 14:10:05 2018
+    Info: Elapsed time: 00:00:20
+    Info: Total CPU time (on all processors): 00:00:42
+
+
