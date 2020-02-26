@@ -1,0 +1,47 @@
+
+State Machine - |Motor_Control|Mux_Control:U4|r_SM_Main
+Name r_SM_Main.s_Mux_15 r_SM_Main.s_Mux_14 r_SM_Main.s_Mux_13 r_SM_Main.s_Mux_12 r_SM_Main.s_Mux_11 r_SM_Main.s_Mux_10 r_SM_Main.s_Mux_9 r_SM_Main.s_Mux_8 r_SM_Main.s_Mux_7 r_SM_Main.s_Mux_6 r_SM_Main.s_Mux_5 r_SM_Main.s_Mux_4 r_SM_Main.s_Mux_3 r_SM_Main.s_Mux_2 r_SM_Main.s_Mux_1 r_SM_Main.s_Mux_0 
+r_SM_Main.s_Mux_0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+r_SM_Main.s_Mux_1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+r_SM_Main.s_Mux_2 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+r_SM_Main.s_Mux_3 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+r_SM_Main.s_Mux_4 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+r_SM_Main.s_Mux_5 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+r_SM_Main.s_Mux_6 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+r_SM_Main.s_Mux_7 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_8 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_9 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_10 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_11 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_12 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_13 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_14 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+r_SM_Main.s_Mux_15 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |Motor_Control|H_Bridge_DC_Motor:U3|H_Bridge_Direction:U0|r_SM_Main
+Name r_SM_Main.s_Motor_Hold r_SM_Main.s_Motor_Reverse r_SM_Main.s_Motor_Forward r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 
+r_SM_Main.s_Motor_Forward 0 0 1 1 
+r_SM_Main.s_Motor_Reverse 0 1 0 1 
+r_SM_Main.s_Motor_Hold 1 0 0 1 
+
+State Machine - |Motor_Control|H_Bridge_DC_Motor:U2|H_Bridge_Direction:U0|r_SM_Main
+Name r_SM_Main.s_Motor_Hold r_SM_Main.s_Motor_Reverse r_SM_Main.s_Motor_Forward r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 
+r_SM_Main.s_Motor_Forward 0 0 1 1 
+r_SM_Main.s_Motor_Reverse 0 1 0 1 
+r_SM_Main.s_Motor_Hold 1 0 0 1 
+
+State Machine - |Motor_Control|H_Bridge_DC_Motor:U1|H_Bridge_Direction:U0|r_SM_Main
+Name r_SM_Main.s_Motor_Hold r_SM_Main.s_Motor_Reverse r_SM_Main.s_Motor_Forward r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 
+r_SM_Main.s_Motor_Forward 0 0 1 1 
+r_SM_Main.s_Motor_Reverse 0 1 0 1 
+r_SM_Main.s_Motor_Hold 1 0 0 1 
+
+State Machine - |Motor_Control|H_Bridge_DC_Motor:U0|H_Bridge_Direction:U0|r_SM_Main
+Name r_SM_Main.s_Motor_Hold r_SM_Main.s_Motor_Reverse r_SM_Main.s_Motor_Forward r_SM_Main.s_Idle 
+r_SM_Main.s_Idle 0 0 0 0 
+r_SM_Main.s_Motor_Forward 0 0 1 1 
+r_SM_Main.s_Motor_Reverse 0 1 0 1 
+r_SM_Main.s_Motor_Hold 1 0 0 1 

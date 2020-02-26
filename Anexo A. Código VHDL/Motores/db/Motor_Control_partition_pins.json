@@ -1,0 +1,129 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "o_Data_END",
+					"strict" : false
+				},
+				{
+					"name" : "o_Data_OUT",
+					"strict" : false
+				},
+				{
+					"name" : "o_Mux_Control[0]",
+					"strict" : false
+				},
+				{
+					"name" : "o_Mux_Control[1]",
+					"strict" : false
+				},
+				{
+					"name" : "o_Mux_Control[2]",
+					"strict" : false
+				},
+				{
+					"name" : "o_Mux_Control[3]",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_0_Dir",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_0_En",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_0_PWM",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_1_Dir",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_1_En",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_1_PWM",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_2_Dir",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_2_En",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_2_PWM",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_3_Dir",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_3_En",
+					"strict" : false
+				},
+				{
+					"name" : "o_Motor_3_PWM",
+					"strict" : false
+				},
+				{
+					"name" : "i_Data_Start",
+					"strict" : false
+				},
+				{
+					"name" : "i_Clk",
+					"strict" : false
+				},
+				{
+					"name" : "i_Data_RST",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[2]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[3]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[4]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[5]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[1]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[0]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[7]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Duty_Cycle[6]",
+					"strict" : false
+				},
+				{
+					"name" : "i_Mux",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
