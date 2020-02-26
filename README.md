@@ -3,8 +3,7 @@ El presente proyecto consiste en el desarrollo de un sistema de control lógico 
 La implementación del código en VHDL permite la jerarquización de bloques de código que cumplan cada una de las funciones UART, PWM, multiplexor, control de motores, etc. requeridos por el proyecto.
 
 El sistema desarrollo consiste en una tarjeta de interfaz para la FPGA y un panel de control para el operador.
-[Proyecto](https://github.com/LuisErnie/FPGA-LEGO-robot-Arm/blob/master/Anexo%20C.%20Memoria%20Fotogr%C3%A1fica/Panel%20de%20Control.jpg)
+![Proyecto](https://github.com/LuisErnie/FPGA-LEGO-robot-Arm/blob/master/Anexo%20C.%20Memoria%20Fotogr%C3%A1fica/Panel%20de%20Control.jpg)
 
 El manipulador fue construido con un Kit de LEGO Mindstorms NXT con 4 grados de libertad cada uno controlado por una implementación independiente en la FPGA, esto para demostrar las ventajas de implementar controladores multieje en una FPGA
-
-[Robot](https://github.com/LuisErnie/FPGA-LEGO-robot-Arm/blob/master/Anexo%20C.%20Memoria%20Fotogr%C3%A1fica/Robot%20Manipulador.jpg)
+![Robot](https://github.com/LuisErnie/FPGA-LEGO-robot-Arm/blob/master/Anexo%20C.%20Memoria%20Fotogr%C3%A1fica/Robot%20Manipulador.jpg)
