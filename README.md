@@ -1,2 +1,3 @@
 # FPGA-LEGO-robot-Arm
-LEGO Robot arm controlled with FPGA
+El presente proyecto consiste en el desarrollo de un sistema de control lógico para un robot manipulador de 4 ejes que permita manipular cada uno de forma independiente. El controlador propuesto es implementado en una **FPGA Altera Cyclone V 5CSEMA5F31C6** integrado en la tarjeta **DE1-SOC** de Terasic junto con una tarjeta diseñada para la lectura de las señales de entrada y control de las señales de potencia para los motores, se utilizan optoaisladores para la separación de la tierra de potencia y tierra lógica.
+La implementación del código en VHDL permite la jerarquización de bloques de código que cumplan cada una de las funciones UART, PWM, multiplexor, control de motores, etc. requeridos por el proyecto.
