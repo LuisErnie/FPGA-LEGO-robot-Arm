@@ -1,0 +1,225 @@
+----------------------------------------------------------------------
+-- Pulse Width Modulation With Variable Duty Cycle
+----------------------------------------------------------------------
+-- Set Generic g_BITS as the number of mux inputs
+-- Set Generic g_BITS_CONTROL as follows
+-- g_BITS_CONTROL = (LN(g_BITS)/(LN(2))
+-- Set Generic g_CLKS_PER_BIT as follows:
+-- g_CLKS_PER_BIT = (Frequency of i_Clk)/(Frequency of Mux)
+
+
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.std_logic_unsigned.all;
+
+entity Mux_Control is
+	generic(
+		g_BITS  			: integer  := 16;
+		g_BITS_CONTROL	: integer  := 4;
+		g_CLKS_PER_BIT : integer  := 10417
+	);
+	port(
+		i_Clk	         : in std_logic;
+		i_Mux				: in std_logic;
+		o_Mux_Control	: out std_logic_vector((g_BITS_CONTROL-1) downto 0);
+		o_Mux			   : out std_logic_vector((g_BITS-1) downto 0)
+	);
+end Mux_Control;
+
+architecture Behavioral of Mux_Control is
+	type t_SM_Main is (s_Idle, s_Mux_0, s_Mux_1, s_Mux_2, s_Mux_3, s_Mux_4, s_Mux_5, s_Mux_6, s_Mux_7,
+							 s_Mux_8, s_Mux_9, s_Mux_10, s_Mux_11, s_Mux_12, s_Mux_13, s_Mux_14, s_Mux_15);
+	signal r_SM_Main : t_SM_Main := s_Idle;
+	signal r_Clk_Count : integer range 0 to g_CLKS_PER_BIT-1 := 0;
+	signal r_Mux		 : std_logic_vector((g_BITS-1) downto 0);
+ begin
+    -- Purpose: Read Mux Signal Input
+    p_Mux_Reader : process (i_Clk)  
+    begin
+		if rising_edge(i_Clk) then
+			case r_SM_Main is
+				when s_Idle =>
+					o_Mux_Control	<= "0000";
+					r_Mux 			<= "0000000000000000";					
+					r_SM_Main 		<= s_Mux_0;
+				--Mux Input 0
+				when s_Mux_0 =>
+					o_Mux_Control	<= "0000";
+					r_Mux(0) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_0;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_1;
+					end if;
+				--Mux Input 1
+				when s_Mux_1 =>
+					o_Mux_Control	<= "0001";
+					r_Mux(1) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_1;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_2;
+					end if;
+				--Mux Input 2
+				when s_Mux_2 =>
+					o_Mux_Control	<= "0010";
+					r_Mux(2) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_2;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_3;
+					end if;
+				--Mux Input 3
+				when s_Mux_3 =>
+					o_Mux_Control	<= "0011";
+					r_Mux(3) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_3;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_4;
+					end if;
+				--Mux Input 4
+				when s_Mux_4 =>
+					o_Mux_Control	<= "0100";
+					r_Mux(4) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_4;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_5;
+					end if;
+				--Mux Input 5
+				when s_Mux_5 =>
+					o_Mux_Control	<= "0101";
+					r_Mux(5) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_5;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_6;
+					end if;
+				--Mux Input 6
+				when s_Mux_6 =>
+					o_Mux_Control	<= "0110";
+					r_Mux(6) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_6;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_7;
+					end if;
+				--Mux Input 7
+				when s_Mux_7 =>
+					o_Mux_Control	<= "0111";
+					r_Mux(7) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_7;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_8;
+					end if;
+				--Mux Input 8
+				when s_Mux_8 =>
+					o_Mux_Control	<= "1000";
+					r_Mux(8) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_8;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_9;
+					end if;
+				--Mux Input 9
+				when s_Mux_9 =>
+					o_Mux_Control	<= "1001";
+					r_Mux(9) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_9;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_10;
+					end if;
+				--Mux Input 10
+				when s_Mux_10 =>
+					o_Mux_Control	<= "1010";
+					r_Mux(10) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_10;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_11;
+					end if;
+				--Mux Input 11
+				when s_Mux_11 =>
+					o_Mux_Control	<= "1011";
+					r_Mux(11) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_11;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_12;
+					end if;
+				--Mux Input 12
+				when s_Mux_12 =>
+					o_Mux_Control	<= "1100";
+					r_Mux(12) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_12;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_13;
+					end if;
+				--Mux Input 13
+				when s_Mux_13 =>
+					o_Mux_Control	<= "1101";
+					r_Mux(13) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_13;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_14;
+					end if;
+				--Mux Input 14
+				when s_Mux_14 =>
+					o_Mux_Control	<= "1110";
+					r_Mux(14) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_14;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Mux_15;
+					end if;
+				--Mux Input 15
+				when s_Mux_15 =>
+					o_Mux_Control	<= "1111";
+					r_Mux(15) 		<= i_Mux;					
+					if r_Clk_Count < g_CLKS_PER_BIT-1 then
+						r_Clk_Count <= r_Clk_Count + 1;
+						r_SM_Main 		<= s_Mux_15;
+					else
+						r_Clk_Count <= 0;
+						r_SM_Main 		<= s_Idle;
+					end if;
+			end case;
+		end if;
+    end process p_Mux_Reader;
+    o_Mux	<= r_Mux;
+end Behavioral;
